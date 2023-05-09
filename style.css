@@ -87,9 +87,52 @@ body {
 form {
     width:60%;
 
-    margin-left:auto;
-    margin-right:auto;
+    margin:40px auto;
+
+    font-size:20px;
 }
+fieldset {
+    padding:5px;
+}
+
+#submitter-name, #submitter-email, #wo-room-number, #wo-asset, #wo-manufacturer, #wo-model, #wo-title {
+    height:21px;
+}
+#wo-location {
+    height:25px;
+}
+#submitter-name {
+    width:calc(100% - 156px);
+}
+#submitter-email {
+    width:calc(100% - 128px);
+}
+#wo-room-number {
+    width:calc(100% - 454px);
+}
+#wo-asset {
+    width:calc(100% - 161px);
+}
+#wo-manufacturer {
+    width:calc(100% - 123px);
+} 
+#wo-model {
+    width:calc(100% - 191px);
+} 
+#wo-title {
+    width:calc(100% - 48px);
+}
+
 #submit {
-    margin-bottom:40px;
+    margin-top:20px;
+    padding:5px 15px;
+
+    border:2px solid #383838;
+    border-radius: 10px;
+    background-color:#c7c7c7;
+    background-image: url("images/button-bg.png");
+    background-size: auto 100%;
+
+    font-size:20px;
+    font-family: 'Rubik', sans-serif;
 }

@@ -13,7 +13,7 @@ workOrdersBtn.addEventListener('click', function(){
         workOrdersBtn.classList.remove("button-clicked");
     }, 200);
 
-    displayWorkOrders(main, workOrderArray);
+    workOrderArray = displayWorkOrders(main, workOrderArray);
 });
 
 submitWorkOrderBtn.addEventListener('click', function(){
@@ -22,7 +22,8 @@ submitWorkOrderBtn.addEventListener('click', function(){
         submitWorkOrderBtn.classList.remove("button-clicked");
     }, 200);
 
-    submitWorkOrderForm(main, workOrderArray);
+    workOrderArray = submitWorkOrderForm(main, workOrderArray);
+    console.log(workOrderArray);
 });
 
 howToSubmitBtn.addEventListener('click', function(){
@@ -35,6 +36,7 @@ howToSubmitBtn.addEventListener('click', function(){
 
 function displayWorkOrders(main, workOrderArray){
     main.innerHTML = `<p>work orders placeholder</p>`;
+    return workOrderArray;
 }
 
 function submitWorkOrderForm(main, workOrderArray){
@@ -91,9 +93,29 @@ function submitWorkOrderForm(main, workOrderArray){
             <br />
             <label for="wo-description">Description</label>
             <br />
-            <textarea name="wo-description" id="wo-description" cols="40" rows="10" placeholder="Description (Please be as descriptive of your issue as possible)..."></textarea>
+            <textarea name="wo-description" id="wo-description" cols="40" rows="10" placeholder="Please be as descriptive of your issue as possible..."></textarea>
         </fieldset>
-        <br />
-        <input type="submit" id="submit">
+        <button id="submit">Submit</button>
     </form>`;
+
+    const form = document.querySelector('form');
+
+    let workOrder = undefined;
+
+    form.addEventListener('submit', function() {
+        workOrder = {
+            name: document.querySelector('#submitter-name').value,
+            email: document.querySelector('#submitter-email').value,
+            location: document.querySelector('#wo-location').value,
+            room: document.querySelector('#wo-room-number').value,
+            asset: document.querySelector('#wo-asset').value,
+            manufacturer: document.querySelector('#wo-manufacturer').value,
+            model: document.querySelector('#wo-model').value,
+            title: document.querySelector('#wo-title').value,
+            description: document.querySelector('#wo-description').value,
+        }
+    });
+
+    workOrderArray.push(workOrder);
+    return workOrderArray;
 }

@@ -84,11 +84,19 @@ body {
 
 
 /* submit work order */
+#create-buttons-title {
+    margin:10px;
+    text-align: center;
+}
+#create-buttons {
+    display:flex;
+    justify-content: center;
+    padding:15px;
+}
+
 form {
     width:60%;
-
     margin:40px auto;
-
     font-size:20px;
 }
 fieldset {
@@ -98,7 +106,7 @@ fieldset {
 #submitter-name, #submitter-email, #wo-room-number, #wo-asset, #wo-manufacturer, #wo-model, #wo-title {
     height:21px;
 }
-#wo-location {
+#wo-location, #wo-item {
     height:25px;
 }
 #submitter-name {
@@ -123,11 +131,11 @@ fieldset {
     width:calc(100% - 48px);
 }
 
-#submit {
+#submit-wo {
     margin-top:20px;
     padding:5px 15px;
 
-    border:2px solid #383838;
+    border:3px solid #383838;
     border-radius: 10px;
     background-color:#c7c7c7;
     background-image: url("images/button-bg.png");

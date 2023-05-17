@@ -35,7 +35,6 @@ const main = document.querySelector('#main');
 
 const workOrdersBtn = document.querySelector('#work-orders-button');
 const createWorkOrderBtn = document.querySelector('#create-work-order-button');
-const howToCreateBtn = document.querySelector('#how-to-create-button');
 
 const createIncBtn = document.createElement('button');
 const createSRBtn = document.createElement('button');
@@ -51,6 +50,8 @@ workOrdersBtn.addEventListener('click', function(){
     }, 200);
 
     workOrderArray = displayWorkOrders(workOrderArray);
+
+    woElements = Array.from(document.querySelectorAll('.work-order'));
 });
 
 createWorkOrderBtn.addEventListener('click', function(){
@@ -62,11 +63,14 @@ createWorkOrderBtn.addEventListener('click', function(){
     displayCreateWOButtons();
 });
 
-howToCreateBtn.addEventListener('click', function(){
-    howToCreateBtn.classList.add("button-clicked");
-    setTimeout(() => {
-        howToCreateBtn.classList.remove("button-clicked");
-    }, 200);
+
+// click on work order event
+let woElements = [];
+
+woElements.forEach(function(elem) {
+    elem.addEventListener('click', function() {
+        console.log("clicked!");
+    });
 });
 
 
@@ -95,16 +99,71 @@ createWO.addEventListener('click', function(){
 
 // display functions
 function displayWorkOrders(workOrderArray){
+    main.classList.remove('form');
 
-    for (i = 0; i < workOrderArray.length; i++){
+    main.innerHTML = `<div class="work-order-head">
+            <p class="wo-disp-num">&nbsp;</p>
+            <p class="wo-disp-title">Title</p>
+            <p class="wo-disp-requester">Requester</p>
+            <p class="wo-disp-location">Location</p>
+            <p class="wo-disp-status">Status</p>
+        </div>`;
+
+    for (i = (workOrderArray.length - 1); i >= 0 ; i--){
         console.log(workOrderArray[i]);
-        main.innerHTML = `<div class="work-order">
+
+        let dispLocation = "";
+        let dispStatus = "";
+
+        if (workOrderArray[i].location == "annex"){
+            dispLocation = "Annex";
+        }
+        else if (workOrderArray[i].location == "busGarage"){
+            dispLocation = "Bus Garage";
+        }
+        else if (workOrderArray[i].location == "other"){
+            dispLocation = "Other";
+        }
+        else {
+            dispLocation = workOrderArray[i].location;
+        }
+
+        if (workOrderArray[i].status == "open"){
+            dispStatus = "Open";
+        }
+        else if (workOrderArray[i].status == "closed"){
+            dispStatus = "Closed";
+        }
+        else if (workOrderArray[i].status == "pending"){
+            dispStatus = "Pending";
+        }
+        else if (workOrderArray[i].status == "inoffice"){
+            dispStatus = "In Office";
+        }
+        else if (workOrderArray[i].status == "rtr"){
+            dispStatus = "Ready to Return";
+        }
+        else if (workOrderArray[i].status == "escalated"){
+            dispStatus = "Escalated";
+        }
+        else if (workOrderArray[i].status == "warranty"){
+            dispStatus = "Warranty Service Requested";
+        }
+        else if (workOrderArray[i].status == "partsorder"){
+            dispStatus = "Parts on Order";
+        }
+        else {
+            dispStatus = workOrderArray[i].status;
+        }
+
+        main.innerHTML += `<div id="wo-${i}" class="work-order">
             <p class="wo-disp-num">#${workOrderArray[i].type.toUpperCase()}-${i}</p>
             <p class="wo-disp-title">${workOrderArray[i].title}</p>
             <p class="wo-disp-requester">${workOrderArray[i].name}</p>
-            <p class="wo-disp-location">${workOrderArray[i].location}</p>
-            <p class="wo-disp-status">${workOrderArray[i].status}</p>
-        </div>`;
+            <p class="wo-disp-location">${dispLocation}</p>
+            <p class="wo-disp-status">${dispStatus}</p>
+        </div>
+        `;
     }
     
     return workOrderArray;
@@ -223,8 +282,6 @@ function displaySubmitSRForm(){
 
 //submit work order
 function submitWorkOrderForm(woType){
-    main.classList.remove('form');
-
     let newWorkOrder = {
         type: woType,
         status: "open",

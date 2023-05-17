@@ -80,9 +80,50 @@ body {
 
 
 /* work orders */
-.work-order p {
+.work-order-head {
+    margin:20px auto;
+    padding:10px 15px;
+    border:3px solid #cccccc;
+    border-radius:10px;
+    width:80vw;
+    background-color:#cccccc;
+    font-weight: 700;
+}
+.work-order-head .wo-disp-title {
+    font-weight: 700;
+}
+.work-order {
+    margin:10px auto;
+    padding:10px 15px;
+    border:3px solid #aaaaaa;
+    border-radius:10px;
+    width:80vw;
+
+    transition-duration: 0.25s;
+}
+.work-order:hover {
+    border:5px solid #777777;
+    background-color:#eeeeee;
+}
+.wo-disp-num, .wo-disp-title, .wo-disp-requester, .wo-disp-location, .wo-disp-status {
     display:inline-block;
     font-size:20px;
+}
+.wo-disp-num {
+    width:10%;
+}
+.wo-disp-title {
+    width:40%;
+    font-weight: 600;
+}
+.wo-disp-requester {
+    width:25%;
+}
+.wo-disp-location {
+    width:12%;
+}
+.wo-disp-status {
+    width:10%;
 }
 
 

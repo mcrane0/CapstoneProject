@@ -51,7 +51,6 @@ workOrdersBtn.addEventListener('click', function(){
 
     workOrderArray = displayWorkOrders(workOrderArray);
 
-    woElements = Array.from(document.querySelectorAll('.work-order'));
 });
 
 createWorkOrderBtn.addEventListener('click', function(){
@@ -63,15 +62,6 @@ createWorkOrderBtn.addEventListener('click', function(){
     displayCreateWOButtons();
 });
 
-
-// click on work order event
-let woElements = [];
-
-woElements.forEach(function(elem) {
-    elem.addEventListener('click', function() {
-        console.log("clicked!");
-    });
-});
 
 
 // create work order

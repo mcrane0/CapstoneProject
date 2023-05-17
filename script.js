@@ -1,35 +1,4 @@
-var workOrderArray = [
-    {   
-        asset: "12345",
-        description: ":( help",
-        email: "matthew.riley@barren.kyschools.us",
-        location: "BIZ",
-        manufacturer: "Dell",
-        model: "Latitude 3490",
-        name: "Riley, Matthew",
-        notes: [],
-        requestedItem: "lat-screen",
-        room: "212",
-        status: "open",
-        title: "chromebook doesnt turn on",
-        type: "sr"
-    },
-    {   
-        asset: "23456",
-        description: "my laptop is not real",
-        email: "kdjnfs.ggdgg@barren.kyschools.us",
-        location: "BCTA",
-        manufacturer: "Dell",
-        model: "Latitude 3510",
-        name: "ttwebtgrt, ferwfergtrb",
-        notes: [],
-        requestedItem: "lat-screen",
-        room: "2",
-        status: "open",
-        title: "my laptop is",
-        type: "inc"
-    }
-];
+var workOrderArray = [];
 
 const main = document.querySelector('#main');
 

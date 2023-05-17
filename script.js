@@ -14,8 +14,82 @@ const submitterName = document.createElement('input');
 submitterName.id = "submitter-name";
 const submitterEmail = document.createElement('input');
 submitterEmail.id = "submitter-email";
-const woLocation = document.createElement('select');
-woLocation.id = "wo-location";
+    const woLocBCHS = document.createElement('input');
+    woLocBCHS.id = "woLocBCHS";
+    woLocBCHS.name = "woLocation";
+    woLocBCHS.type = "radio";
+    const woLocATC = document.createElement('input');
+    woLocATC.id = "woLocATC";
+    woLocATC.name = "woLocation";
+    woLocATC.type = "radio";
+    const woLocBIZ = document.createElement('input');
+    woLocBIZ.id = "woLocBIZ";
+    woLocBIZ.name = "woLocation";
+    woLocBIZ.type = "radio";
+    const woLocBCTA = document.createElement('input');
+    woLocBCTA.id = "woLocBCTA";
+    woLocBCTA.name = "woLocation";
+    woLocBCTA.type = "radio";
+    const woLocBCMS = document.createElement('input');
+    woLocBCMS.id = "woLocBCMS";
+    woLocBCMS.name = "woLocation";
+    woLocBCMS.type = "radio";
+    const woLocAT = document.createElement('input');
+    woLocAT.id = "woLocAT";
+    woLocAT.name = "woLocation";
+    woLocAT.type = "radio";
+    const woLocEAST = document.createElement('input');
+    woLocEAST.id = "woLocEAST";
+    woLocEAST.name = "woLocation";
+    woLocEAST.type = "radio";
+    const woLocHV = document.createElement('input');
+    woLocHV.id = "woLocHV";
+    woLocHV.name = "woLocation";
+    woLocHV.type = "radio";
+    const woLocNJ = document.createElement('input');
+    woLocNJ.id = "woLocNJ";
+    woLocNJ.name = "woLocation";
+    woLocNJ.type = "radio";
+    const woLocPC = document.createElement('input');
+    woLocPC.id = "woLocPC";
+    woLocPC.name = "woLocation";
+    woLocPC.type = "radio";
+    const woLocRC = document.createElement('input');
+    woLocRC.id = "woLocRC";
+    woLocRC.name = "woLocation";
+    woLocRC.type = "radio";
+    const woLocTH = document.createElement('input');
+    woLocTH.id = "woLocTH";
+    woLocTH.name = "woLocation";
+    woLocTH.type = "radio";
+    const woLocCSC = document.createElement('input');
+    woLocCSC.id = "woLocCSC";
+    woLocCSC.name = "woLocation";
+    woLocCSC.type = "radio";
+    const woLocAnnex = document.createElement('input');
+    woLocAnnex.id = "woLocAnnex";
+    woLocAnnex.name = "woLocation";
+    woLocAnnex.type = "radio";
+    const woLocBAVEL = document.createElement('input');
+    woLocBAVEL.id = "woLocBAVEL";
+    woLocBAVEL.name = "woLocation";
+    woLocBAVEL.type = "radio";
+    const woLocBOE = document.createElement('input');
+    woLocBOE.id = "woLocBOE";
+    woLocBOE.name = "woLocation";
+    woLocBOE.type = "radio";
+    const woLocBusGarage = document.createElement('input');
+    woLocBusGarage.id = "woLocBusGarage";
+    woLocBusGarage.name = "woLocation";
+    woLocBusGarage.type = "radio";
+    const woLocTWC = document.createElement('input');
+    woLocTWC.id = "woLocTWC";
+    woLocTWC.name = "woLocation";
+    woLocTWC.type = "radio";
+    const woLocOther = document.createElement('input');
+    woLocOther.id = "woLocOther";
+    woLocOther.name = "woLocation";
+    woLocOther.type = "radio";
 const woRoom = document.createElement('input');
 woRoom.id = "wo-room-number";
 const woAsset = document.createElement('input');
@@ -28,10 +102,54 @@ const woTitle = document.createElement('input');
 woTitle.id = "wo-title";
 const woDescription = document.createElement('textarea');
 woDescription.id = "wo-description";
-const woItem = document.createElement('select');
-woItem.id = "wo-item";
-const woAddItem = document.createElement('button');
-woAddItem.id = "wo-add-item";
+    const woItmCBScreenNontouch = document.createElement('input');
+    woItmCBScreenNontouch.id = "woItmCBScreenNontouch";
+    woItmCBScreenNontouch.name = "woItem";
+    woItmCBScreenNontouch.type = "radio";
+    const woItmCBScreenTouch = document.createElement('input');
+    woItmCBScreenTouch.id = "woItmCBScreenTouch";
+    woItmCBScreenTouch.name = "woItem";
+    woItmCBScreenTouch.type = "radio";
+    const woItmCBBattery = document.createElement('input');
+    woItmCBBattery.id = "woItmCBBattery";
+    woItmCBBattery.name = "woItem";
+    woItmCBBattery.type = "radio";
+    const woItmCBKeyboard = document.createElement('input');
+    woItmCBKeyboard.id = "woItmCBKeyboard";
+    woItmCBKeyboard.name = "woItem";
+    woItmCBKeyboard.type = "radio";
+    const woItmCBChargerC = document.createElement('input');
+    woItmCBChargerC.id = "woItmCBChargerC";
+    woItmCBChargerC.name = "woItem";
+    woItmCBChargerC.type = "radio";
+    const woItmCBChargerBarrel = document.createElement('input');
+    woItmCBChargerBarrel.id = "woItmCBChargerBarrel";
+    woItmCBChargerBarrel.name = "woItem";
+    woItmCBChargerBarrel.type = "radio";
+    const woItmCBBackCover = document.createElement('input');
+    woItmCBBackCover.id = "woItmCBBackCover";
+    woItmCBBackCover.name = "woItem";
+    woItmCBBackCover.type = "radio";
+    const woItmCBBezel = document.createElement('input');
+    woItmCBBezel.id = "woItmCBBezel";
+    woItmCBBezel.name = "woItem";
+    woItmCBBezel.type = "radio";
+    const woItmCBHingeCovers = document.createElement('input');
+    woItmCBHingeCovers.id = "woItmCBHingeCovers";
+    woItmCBHingeCovers.name = "woItem";
+    woItmCBHingeCovers.type = "radio";
+    const woItmCBReplacement = document.createElement('input');
+    woItmCBReplacement.id = "woItmCBReplacement";
+    woItmCBReplacement.name = "woItem";
+    woItmCBReplacement.type = "radio";
+    const woItmLatScreen = document.createElement('input');
+    woItmLatScreen.id = "woItmLatScreen";
+    woItmLatScreen.name = "woItem";
+    woItmLatScreen.type = "radio";
+    const woItmUSBBluetooth = document.createElement('input');
+    woItmUSBBluetooth.id = "woItmUSBBluetooth";
+    woItmUSBBluetooth.name = "woItem";
+    woItmUSBBluetooth.type = "radio";
 const submitWO = document.createElement('button');
 submitWO.id = "submit-wo";
 
@@ -42,7 +160,7 @@ workOrdersBtn.addEventListener('click', function(){
         workOrdersBtn.classList.remove("button-clicked");
     }, 200);
 
-    workOrderArray = displayWorkOrders(main, workOrderArray);
+    workOrderArray = displayWorkOrders(workOrderArray);
 });
 
 createWorkOrderBtn.addEventListener('click', function(){
@@ -51,7 +169,7 @@ createWorkOrderBtn.addEventListener('click', function(){
         createWorkOrderBtn.classList.remove("button-clicked");
     }, 200);
 
-    displayCreateWOButtons(main);
+    displayCreateWOButtons();
 });
 
 howToCreateBtn.addEventListener('click', function(){
@@ -67,26 +185,29 @@ let workOrderType = null;
 
 createIncBtn.addEventListener('click', function(){
     workOrderType = "inc";
-    displaySubmitIncForm(main);
+    main.innerHTML = " ";
+    displaySubmitIncForm();
 });
 
 createSRBtn.addEventListener('click', function(){
     workOrderType = "sr";
-    displaySubmitSRForm(main);
+    main.innerHTML = " ";
+    displaySubmitSRForm();
 });
 
 submitWO.addEventListener('click', function(){
-    submitWorkOrderForm();
+    main.innerHTML = " ";
+    submitWorkOrderForm(workOrderType);
 });
 
 
 // display functions
-function displayWorkOrders(mainHTML, workOrderArray){
-    mainHTML.innerHTML = `<p>work orders placeholder</p>`;
+function displayWorkOrders(workOrderArray){
+    main.innerHTML = `<p>work orders placeholder</p>`;
     return workOrderArray;
 }
 
-function displayCreateWOButtons(mainHTML){
+function displayCreateWOButtons(){
     createIncBtn.id = "create-incident-button";
     createIncBtn.classList.add('button');
     createIncBtn.innerText = "Incident";
@@ -97,15 +218,14 @@ function displayCreateWOButtons(mainHTML){
     const createBtnsDiv = document.createElement('div');
     createBtnsDiv.id = "create-buttons";
 
-    mainHTML.innerHTML = `<h2 id="create-buttons-title">Create a...</h2>`;
-    mainHTML.insertAdjacentElement(`beforeend`, createBtnsDiv);
+    main.innerHTML = `<h2 id="create-buttons-title">Create a...</h2>`;
+    main.insertAdjacentElement(`beforeend`, createBtnsDiv);
     createBtnsDiv.append(createIncBtn);
     createBtnsDiv.append(createSRBtn);
 }
 
-function displaySubmitIncForm(mainHTML){
-    mainHTML.innerHTML = "";
-    mainHTML.append(form);
+function displaySubmitIncForm(){
+    main.append(form);
 
     const fieldset1 = document.createElement('fieldset');
     fieldset1.innerHTML = "<legend>Your Information</legend>\n";
@@ -131,30 +251,70 @@ function displaySubmitIncForm(mainHTML){
 
     form.append(fieldset2);
 
-    fieldset2.innerHTML += `<label for="wo-location">Location</label>` + "\n";
-        woLocation.required = true;
-        woLocation.innerHTML = `<option value="BCHS">BCHS</option>
-            <option value="ATC">ATC</option>
-            <option value="BIZ">BIZ</option>
-            <option value="BCTA">BCTA</option>
-            <option value="BCMS">BCMS</option>
-            <option value="AT">AT</option>
-            <option value="EAST">EAST</option>
-            <option value="HV">HV</option>
-            <option value="NJ">NJ</option>
-            <option value="PC">PC</option>
-            <option value="RC">RC</option>
-            <option value="TH">TH</option>
-            <option value="CSC">CSC</option>
-            <option value="annex">Annex</option>
-            <option value="BAVEL">BAVEL</option>
-            <option value="BOE">BOE</option>
-            <option value="busGarage">Bus Garage</option>
-            <option value="TWC">TWC</option>
-            <option value="other">Other (Please specify in Description)</option>`;
-    fieldset2.append(woLocation);
+    const fieldset2_5 = document.createElement('fieldset');
+    fieldset2_5.innerHTML = "<legend>Department</legend>\n";
 
-    fieldset2.innerHTML += `<label for="wo-room-number">Room Number</label>` + "\n";
+    fieldset2.append(fieldset2_5);
+
+    woLocBCHS.value = "BCHS";
+        fieldset2_5.append(woLocBCHS);
+        fieldset2_5.innerHTML += `<label for="woLocBCHS">BCHS</label>` + "&nbsp;\n";
+    woLocATC.value = "ATC";
+        fieldset2_5.append(woLocATC);
+        fieldset2_5.innerHTML += `<label for="woLocATC">ATC</label>` + "&nbsp;\n";
+    woLocATC.value = "BIZ";
+        fieldset2_5.append(woLocBIZ);
+        fieldset2_5.innerHTML += `<label for="woLocBIZ">BIZ</label>` + "&nbsp;\n";
+    woLocATC.value = "BCTA";
+        fieldset2_5.append(woLocBCTA);
+        fieldset2_5.innerHTML += `<label for="woLocBCTA">BCTA</label>` + "&nbsp;\n";
+    woLocATC.value = "BCMS";
+        fieldset2_5.append(woLocBCMS);
+        fieldset2_5.innerHTML += `<label for="woLocBCMS">BCMS</label>` + "&nbsp;\n";
+    woLocATC.value = "AT";
+        fieldset2_5.append(woLocAT);
+        fieldset2_5.innerHTML += `<label for="woLocAT">AT</label>` + "&nbsp;\n";
+    woLocATC.value = "EAST";
+        fieldset2_5.append(woLocEAST);
+        fieldset2_5.innerHTML += `<label for="woLocEAST">EAST</label>` + "&nbsp;\n";
+    woLocATC.value = "HV";
+        fieldset2_5.append(woLocHV);
+        fieldset2_5.innerHTML += `<label for="woLocHV">HV</label>` + "&nbsp;\n";
+    woLocATC.value = "NJ";
+        fieldset2_5.append(woLocNJ);
+        fieldset2_5.innerHTML += `<label for="woLocNJ">NJ</label>` + "&nbsp;\n";
+    woLocATC.value = "PC";
+        fieldset2_5.append(woLocPC);
+        fieldset2_5.innerHTML += `<label for="woLocPC">PC</label>` + "&nbsp;\n";
+    woLocATC.value = "RC";
+        fieldset2_5.append(woLocRC);
+        fieldset2_5.innerHTML += `<label for="woLocRC">RC</label>` + "&nbsp;\n";
+    woLocATC.value = "TH";
+        fieldset2_5.append(woLocTH);
+        fieldset2_5.innerHTML += `<label for="woLocTH">TH</label>` + "&nbsp;\n";
+    woLocATC.value = "CSC";
+        fieldset2_5.append(woLocCSC);
+        fieldset2_5.innerHTML += `<label for="woLocCSC">CSC</label>` + "&nbsp;\n";
+    woLocATC.value = "annex";
+        fieldset2_5.append(woLocAnnex);
+        fieldset2_5.innerHTML += `<label for="woLocAnnex">Annex</label>` + "&nbsp;\n";
+    woLocATC.value = "BAVEL";
+        fieldset2_5.append(woLocBAVEL);
+        fieldset2_5.innerHTML += `<label for="woLocBAVEL">BAVEL</label>` + "&nbsp;\n";
+    woLocATC.value = "BOE";
+        fieldset2_5.append(woLocBOE);
+        fieldset2_5.innerHTML += `<label for="woLocBOE">BOE</label>` + "&nbsp;\n";
+    woLocATC.value = "busGarage";
+        fieldset2_5.append(woLocBusGarage);
+        fieldset2_5.innerHTML += `<label for="woLocBusGarage">Bus Garage</label>` + "&nbsp;\n";
+    woLocATC.value = "TWC";
+        fieldset2_5.append(woLocTWC);
+        fieldset2_5.innerHTML += `<label for="woLocTWC">TWC</label>` + "&nbsp;\n";
+    woLocATC.value = "other";
+        fieldset2_5.append(woLocOther);
+        fieldset2_5.innerHTML += `<label for="woLocOther">Other</label>` + "&nbsp;\n";
+
+    fieldset2.innerHTML += `<label for="wo-room-number">Room Number</label>` + "&nbsp;\n";
         woRoom.type = "text";
         woRoom.required = true;
     fieldset2.append(woRoom);
@@ -208,8 +368,8 @@ function displaySubmitIncForm(mainHTML){
 
 }
 
-function displaySubmitSRForm(mainHTML){
-    displaySubmitIncForm(mainHTML);
+function displaySubmitSRForm(){
+    displaySubmitIncForm(main);
 
     submitWO.remove();
 
@@ -221,26 +381,42 @@ function displaySubmitSRForm(mainHTML){
 
     form.append(fieldset5);
 
-    fieldset5.innerHTML += `<label for="wo-item">Item</label>` + "\n";
-        woItem.required = true;
-        woItem.innerHTML = `<option value="cb-screen-nontouch">Chromebook Screen - Non-Touch - $80</option>
-            <option value="cb-screen-touch">Chromebook Screen - Touch - $80</option>
-            <option value="cb-battery">Chromebook Battery</option>
-            <option value="cb-keyboard">Chromebook Keyboard - $60</option>
-            <option value="cb-charger-c">Chromebook Charger - USB-C - $40</option>
-            <option value="cb-charger-barrel">Chromebook Charger - Barrel - $40</option>
-            <option value="cb-back-cover">Chromebook Back Cover - $25</option>
-            <option value="cb-bezel">Chromebook Bezel</option>
-            <option value="cb-hinge-covers">Chromebook Hinge Covers - $10</option>
-            <option value="cb-replacement">Chromebook Replacement - $275</option>
-            <option value="lat-screen">Latitude 3510/3520 Screen - $80</option>
-            <option value="usb-bluetooth">USB Bluetooth Dongle - $10</option>`;
-    fieldset5.append(woItem);
-
-    fieldset5.innerHTML += `<br />` + "\n";
-
-    woAddItem.innerText = "Request Another Item";
-    fieldset5.append(woAddItem);
+    woItmCBScreenNontouch.value = "CBScreenNontouch";
+        fieldset5.append(woItmCBScreenNontouch);
+        fieldset5.innerHTML += `<label for="woItmCBScreenNontouch">Chromebook Screen - Non-Touch - $80</label>` + "\n<br />\n";
+    woItmCBScreenTouch.value = "CBScreenTouch";
+        fieldset5.append(woItmCBScreenTouch);
+        fieldset5.innerHTML += `<label for="woItmCBScreenTouch">Chromebook Screen - Touch - $80</label>` + "\n<br />\n";
+    woItmCBBattery.value = "CBBattery";
+        fieldset5.append(woItmCBBattery);
+        fieldset5.innerHTML += `<label for="woItmCBBattery">Chromebook Battery</label>` + "\n<br />\n";
+    woItmCBKeyboard.value = "CBKeyboard";
+        fieldset5.append(woItmCBKeyboard);
+        fieldset5.innerHTML += `<label for="woItmCBKeyboard">Chromebook Keyboard - $60</label>` + "\n<br />\n";
+    woItmCBChargerC.value = "CBChargerC";
+        fieldset5.append(woItmCBChargerC);
+        fieldset5.innerHTML += `<label for="woItmCBChargerC">Chromebook Charger - USB-C - $40</label>` + "\n<br />\n";
+    woItmCBChargerBarrel.value = "CBChargerBarrel";
+        fieldset5.append(woItmCBChargerBarrel);
+        fieldset5.innerHTML += `<label for="woItmCBChargerBarrel">Chromebook Charger - Barrel - $40</label>` + "\n<br />\n";
+    woItmCBBackCover.value = "CBBackCover";
+        fieldset5.append(woItmCBBackCover);
+        fieldset5.innerHTML += `<label for="woItmCBBackCover">Chromebook Back Cover - $25</label>` + "\n<br />\n";
+    woItmCBBezel.value = "CBBezel";
+        fieldset5.append(woItmCBBezel);
+        fieldset5.innerHTML += `<label for="woItmCBBezel">Chromebook Bezel</label>` + "\n<br />\n";
+    woItmCBHingeCovers.value = "CBHingeCovers";
+        fieldset5.append(woItmCBHingeCovers);
+        fieldset5.innerHTML += `<label for="woItmCBHingeCovers">Chromebook Hinge Covers - $10</label>` + "\n<br />\n";
+    woItmCBReplacement.value = "CBReplacement";
+        fieldset5.append(woItmCBReplacement);
+        fieldset5.innerHTML += `<label for="woItmCBReplacement">Chromebook Replacement - $275</label>` + "\n<br />\n";
+    woItmLatScreen.value = "LatScreen";
+        fieldset5.append(woItmLatScreen);
+        fieldset5.innerHTML += `<label for="woItmLatScreen">Latitude 3510/3520 Screen - $80</label>` + "\n<br />\n";
+    woItmUSBBluetooth.value = "USBBluetooth";
+        fieldset5.append(woItmUSBBluetooth);
+        fieldset5.innerHTML += `<label for="woItmUSBBluetooth">USB Bluetooth Dongle - $10</label>` + "\n<br />\n";
 
 
     form.append(submitWO);
@@ -249,6 +425,24 @@ function displaySubmitSRForm(mainHTML){
 
 
 //submit work order
-function submitWorkOrderForm(){
+function submitWorkOrderForm(woType){
+    let newWorkOrder = {
+        type: woType,
+        name: null,
+        email: null,
+        location: null,
+        room: null,
+        asset: null,
+        manufacturer: null,
+        model: null,
+        title: null,
+        description: null,
+        requestedItem: null,
+    };
+
+    newWorkOrder.name = submitterName.value;
+    newWorkOrder.email = submitterEmail.value;
+
     
+
 }

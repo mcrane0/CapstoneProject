@@ -106,7 +106,7 @@ fieldset {
 #submitter-name, #submitter-email, #wo-room-number, #wo-asset, #wo-manufacturer, #wo-model, #wo-title {
     height:21px;
 }
-#wo-location, #wo-item {
+#wo-item {
     height:25px;
 }
 #submitter-name {
@@ -116,7 +116,7 @@ fieldset {
     width:calc(100% - 128px);
 }
 #wo-room-number {
-    width:calc(100% - 454px);
+    width:calc(100% - 142px);
 }
 #wo-asset {
     width:calc(100% - 161px);

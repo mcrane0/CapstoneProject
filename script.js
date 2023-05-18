@@ -1,4 +1,35 @@
-var workOrderArray = [];
+const workOrderArray = [
+    {
+        "type": "inc",
+        "status": "open",
+        "name": "Watkins, Gabriel",
+        "email": "dkeeling@hotmail.com",
+        "location": "NJ",
+        "room": "129",
+        "asset": "2201",
+        "manufacturer": "Dell",
+        "model": "Latitude",
+        "title": "chromebook does not charged unless plugged in",
+        "description": "chromebook will not charge unless i plug it in. help.",
+        "requestedItem": null,
+        "notes": []
+    },
+    {
+        "type": "sr",
+        "status": "open",
+        "name": "Floyd, Isla",
+        "email": "uriah88@weber.com",
+        "location": "BCHS",
+        "room": "66",
+        "asset": "16526",
+        "manufacturer": "Dell",
+        "model": "Chromebook",
+        "title": "need new chromebook charger",
+        "description": "one of my students took a chromebook charger and ate it while i wasnt looking. i need a new charger to replace it please.",
+        "requestedItem": "cb-charger-c",
+        "notes": []
+    }
+];
 
 const main = document.querySelector('#main');
 
@@ -11,14 +42,14 @@ const createSRBtn = document.createElement('button');
 const createWO = document.createElement('button');
 createWO.id = "create-wo";
 
-// work orders, create work order, and how to create button events
+// work orders, create work order button events
 workOrdersBtn.addEventListener('click', function(){
     workOrdersBtn.classList.add("button-clicked");
     setTimeout(() => {
         workOrdersBtn.classList.remove("button-clicked");
     }, 200);
 
-    workOrderArray = displayWorkOrders(workOrderArray);
+    displayWorkOrders(workOrderArray);
 
 });
 
@@ -30,7 +61,6 @@ createWorkOrderBtn.addEventListener('click', function(){
 
     displayCreateWOButtons();
 });
-
 
 
 // create work order
@@ -50,10 +80,29 @@ createSRBtn.addEventListener('click', function(){
 
 createWO.addEventListener('click', function(){
     workOrderArray.push( submitWorkOrderForm(workOrderType) );
-    console.log(workOrderArray[0]);
 
     main.innerHTML = " ";
+    displayWorkOrders(workOrderArray);
 });
+
+
+// click on work order event        code adapted from Ethan Combs thank you Ethan
+main.addEventListener('click', function(ev){
+    let woToView = ev.target;
+
+    if (woToView.tagName == "P" && woToView.parentElement.id.substring(0, 3) == "wo-"){
+        woToView = woToView.parentElement;
+
+        main.innerHTML = " ";
+        viewWorkOrder( parseInt(woToView.id.substring(3)), workOrderArray );
+    }
+    else if (woToView.id.substring(0, 3) == "wo-"){
+        main.innerHTML = " ";
+        viewWorkOrder( parseInt(woToView.id.substring(3)), workOrderArray ); 
+    }
+
+});
+
 
 
 // display functions
@@ -125,7 +174,6 @@ function displayWorkOrders(workOrderArray){
         `;
     }
     
-    return workOrderArray;
 }
 
 function displayCreateWOButtons(){
@@ -239,7 +287,7 @@ function displaySubmitSRForm(){
 }
 
 
-//submit work order
+// submit work order
 function submitWorkOrderForm(woType){
     let newWorkOrder = {
         type: woType,
@@ -275,5 +323,105 @@ function submitWorkOrderForm(woType){
 
     console.log(newWorkOrder);
     return(newWorkOrder);
+
+}
+
+
+// view work order information
+function viewWorkOrder(viewWO, workOrderArray){
+
+    console.log("Clicked Work Order:\t" + viewWO + ",");
+    console.log(workOrderArray[viewWO]);
+
+    let dispLocation = "";
+    let dispStatus = "";
+
+    if (workOrderArray[viewWO].location == "annex"){
+        dispLocation = "Annex";
+    }
+    else if (workOrderArray[viewWO].location == "busGarage"){
+        dispLocation = "Bus Garage";
+    }
+    else if (workOrderArray[viewWO].location == "other"){
+        dispLocation = "Other";
+    }
+    else {
+        dispLocation = workOrderArray[viewWO].location;
+    }
+
+    if (workOrderArray[viewWO].status == "open"){
+        dispStatus = "Open";
+    }
+    else if (workOrderArray[viewWO].status == "closed"){
+        dispStatus = "Closed";
+    }
+    else if (workOrderArray[viewWO].status == "pending"){
+        dispStatus = "Pending";
+    }
+    else if (workOrderArray[viewWO].status == "inoffice"){
+        dispStatus = "In Office";
+    }
+    else if (workOrderArray[viewWO].status == "rtr"){
+        dispStatus = "Ready to Return";
+    }
+    else if (workOrderArray[viewWO].status == "escalated"){
+        dispStatus = "Escalated";
+    }
+    else if (workOrderArray[viewWO].status == "warranty"){
+        dispStatus = "Warranty Service Requested";
+    }
+    else if (workOrderArray[viewWO].status == "partsorder"){
+        dispStatus = "Parts on Order";
+    }
+    else {
+        dispStatus = workOrderArray[viewWO].status;
+    }
+
+    main.innerHTML = `<div class="work-order-info-buttons">
+        <button id="back-button" class="button">Back</button>
+        <button id="edit-wo-button" class="button">Edit</button>
+    </div>
+    `;
+
+    let woInfo = `<div class="work-order-info">
+        <div>
+            <p class="wo-view-num">#${workOrderArray[viewWO].type.toUpperCase()}-${viewWO}</p>
+            <p class="wo-view-title">${workOrderArray[viewWO].title}</p>
+
+            <p class="wo-view-status">${dispStatus}</p>
+        </div>
+        <div>
+            <p class="wo-view-requester">${workOrderArray[viewWO].name}</p>
+            <p class="wo-view-requester-email">${workOrderArray[viewWO].email}</p>
+        </div>
+        <div>
+            <p class="wo-view-location">${dispLocation}</p>
+            <p class="wo-view-room-num">${workOrderArray[viewWO].room}</p>
+        </div>
+        <div>
+            <p class="wo-view-description">${workOrderArray[viewWO].description}</p>
+        </div>
+    `;
+
+    if (workOrderArray[viewWO].type == "sr"){
+        let dispReqItem = null;
+
+        if (workOrderArray[viewWO].requestedItem == "cb-screen-nontouch"){
+            dispReqItem = "Chromebook Screen - Non-Touch - $80";
+        }
+        else {
+            dispReqItem = workOrderArray[viewWO].requestedItem;
+        }
+
+        woInfo += `<div>
+            <h3>Requested Items</h3>
+            <p>${dispReqItem}</p>
+        </div>
+        `;
+    }
+
+    woInfo += `</div>`
+
+    main.innerHTML += woInfo;
 
 }

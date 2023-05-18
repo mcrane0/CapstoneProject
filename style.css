@@ -130,7 +130,7 @@ body {
     margin:10px auto;
     width:80vw;
 }
-.work-order-info {
+.work-order-info, .work-order-notes {
     margin:10px auto;
     padding:10px 15px;
     border:5px solid #777777;
@@ -165,16 +165,21 @@ body {
 .wo-view-room-num {
     width:10%;
 }
-
 .wo-view-req-item-price {
     font-weight: 300;
 }
-
-
-
-
-
-
+#no-notes {
+    font-size:20px;
+    font-weight: 300;
+}
+.wo-view-note {
+    margin-top:20px;
+    margin-bottom:10px;
+    font-size:20px;
+}
+#new-note {
+    margin-left: calc(10vw + 15px);
+}
 
 
 /* submit work order */

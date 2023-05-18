@@ -1,7 +1,7 @@
 const workOrderArray = [
     {
         "type": "inc",
-        "status": "open",
+        "status": "closed",
         "name": "Watkins, Gabriel",
         "email": "gabriel.watkins@barren.kyschools.us",
         "location": "NJ",
@@ -12,7 +12,7 @@ const workOrderArray = [
         "title": "chromebook does not charged unless plugged in",
         "description": "chromebook will not charge unless i plug it in. help.",
         "requestedItem": null,
-        "notes": []
+        "notes": ["informed requester that chromebooks are only supposed to charge when they're plugged in -JM 5/16/23", "requester called asking why his phone can wireless charge but the chromebooks can't. explained how wireless charging is a feature that $300 school-targeted chromebooks do not have. -MC 5-17-23"]
     },
     {
         "type": "sr",
@@ -41,6 +41,9 @@ const createSRBtn = document.createElement('button');
 
 const createWO = document.createElement('button');
 createWO.id = "create-wo";
+
+const addNote = document.createElement('button');
+addNote.id = "new-note";
 
 // work orders, create work order button events
 workOrdersBtn.addEventListener('click', function(){
@@ -435,7 +438,25 @@ function viewWorkOrder(viewWO, workOrderArray){
             dispReqItem = "Chromebook Charger - Barrel";
             reqItemPrice = "$40.00";
         }
-
+        else if (workOrderArray[viewWO].requestedItem == "cb-bezel"){
+            dispReqItem = "Chromebook Bezel";
+        }
+        else if (workOrderArray[viewWO].requestedItem == "cb-hinge-covers"){
+            dispReqItem = "Chromebook Hinge Covers";
+            reqItemPrice = "$10.00";
+        }
+        else if (workOrderArray[viewWO].requestedItem == "cb-replacement"){
+            dispReqItem = "Chromebook Replacement";
+            reqItemPrice = "$275.00";
+        }
+        else if (workOrderArray[viewWO].requestedItem == "lat-screen"){
+            dispReqItem = "Latitude 3510/3520 Screen";
+            reqItemPrice = "$80.00";
+        }
+        else if (workOrderArray[viewWO].requestedItem == "usb-bluetooth"){
+            dispReqItem = "USB Bluetooth Dongle";
+            reqItemPrice = "$10.00";
+        }
         else {
             dispReqItem = workOrderArray[viewWO].requestedItem;
         }
@@ -457,7 +478,27 @@ function viewWorkOrder(viewWO, workOrderArray){
         }
     }
 
-    woInfo += `</div>`
+    woInfo += `</div>` + "\n";
     main.innerHTML += woInfo;
+
+    woInfo = `<div class="work-order-notes">
+        <h3>Notes</h3>` + "\n";
+
+    if (workOrderArray[viewWO].notes.length == 0){
+        woInfo += `<p id="no-notes">There are no notes on this work order.</p>` + "\n";
+    }
+    else {
+        for (n = 0; n < workOrderArray[viewWO].notes.length; n++){
+            woInfo += `<p class="wo-view-note">${workOrderArray[viewWO].notes[n]}</p>` + "\n";
+        }
+    }
+
+    woInfo += `</div>` + "\n";
+    main.innerHTML += woInfo;
+
+    addNote.classList.add('button');
+    addNote.innerText = "New Note";
+    main.append(addNote);
+
 
 }

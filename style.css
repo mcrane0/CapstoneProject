@@ -137,6 +137,44 @@ body {
     border-radius:10px;
     width:80vw;
 }
+.wo-view-num, .wo-view-title, .wo-view-status, .wo-view-requester, .wo-view-requester-email, .wo-view-location, .wo-view-room-num, .wo-view-description, .wo-view-req-item, .wo-view-req-item-price {
+    display:inline-block;
+    font-size:20px;
+}
+.work-order-info h3 {
+    margin-top:20px;
+}
+.wo-view-num, .wo-view-req-item {
+    margin-right:20px;
+}
+.wo-view-title {
+    font-weight: 600;
+}
+.wo-view-status {
+    float: right;
+}
+.wo-view-requester {
+    width:30%;
+}
+.wo-view-requester-email {
+    width:45%;
+}
+.wo-view-location {
+    width:13%;
+}
+.wo-view-room-num {
+    width:10%;
+}
+
+.wo-view-req-item-price {
+    font-weight: 300;
+}
+
+
+
+
+
+
 
 
 /* submit work order */

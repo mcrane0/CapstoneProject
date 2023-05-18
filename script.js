@@ -3,7 +3,7 @@ const workOrderArray = [
         "type": "inc",
         "status": "open",
         "name": "Watkins, Gabriel",
-        "email": "dkeeling@hotmail.com",
+        "email": "gabriel.watkins@barren.kyschools.us",
         "location": "NJ",
         "room": "129",
         "asset": "2201",
@@ -18,7 +18,7 @@ const workOrderArray = [
         "type": "sr",
         "status": "open",
         "name": "Floyd, Isla",
-        "email": "uriah88@weber.com",
+        "email": "isla.floyd@barren.kyschools.us",
         "location": "BCHS",
         "room": "66",
         "asset": "16526",
@@ -391,37 +391,73 @@ function viewWorkOrder(viewWO, workOrderArray){
             <p class="wo-view-status">${dispStatus}</p>
         </div>
         <div>
-            <p class="wo-view-requester">${workOrderArray[viewWO].name}</p>
-            <p class="wo-view-requester-email">${workOrderArray[viewWO].email}</p>
+            <h3 class="wo-view-requester">Requester</h3>
+            <h3 class="wo-view-requester-email">Email Address</h3>
+            <h3 class="wo-view-location">Location</h3>
+            <h3 class="wo-view-room-num">Room</h3>
         </div>
         <div>
+            <p class="wo-view-requester">${workOrderArray[viewWO].name}</p>
+            <p class="wo-view-requester-email">${workOrderArray[viewWO].email}</p>
             <p class="wo-view-location">${dispLocation}</p>
             <p class="wo-view-room-num">${workOrderArray[viewWO].room}</p>
         </div>
         <div>
+            <h3>Description</h3>
             <p class="wo-view-description">${workOrderArray[viewWO].description}</p>
         </div>
     `;
 
     if (workOrderArray[viewWO].type == "sr"){
         let dispReqItem = null;
+        let reqItemPrice = null;
 
         if (workOrderArray[viewWO].requestedItem == "cb-screen-nontouch"){
-            dispReqItem = "Chromebook Screen - Non-Touch - $80";
+            dispReqItem = "Chromebook Screen - Non-Touch";
+            reqItemPrice = "$80.00";
         }
+        else if (workOrderArray[viewWO].requestedItem == "cb-screen-touch"){
+            dispReqItem = "Chromebook Screen - Touch";
+            reqItemPrice = "$80.00";
+        }
+        else if (workOrderArray[viewWO].requestedItem == "cb-battery"){
+            dispReqItem = "Chromebook Battery";
+        }
+        else if (workOrderArray[viewWO].requestedItem == "cb-keyboard"){
+            dispReqItem = "Chromebook Keyboard";
+            reqItemPrice = "$60.00";
+        }
+        else if (workOrderArray[viewWO].requestedItem == "cb-charger-c"){
+            dispReqItem = "Chromebook Charger - USB-C";
+            reqItemPrice = "$40.00";
+        }
+        else if (workOrderArray[viewWO].requestedItem == "cb-charger-barrel"){
+            dispReqItem = "Chromebook Charger - Barrel";
+            reqItemPrice = "$40.00";
+        }
+
         else {
             dispReqItem = workOrderArray[viewWO].requestedItem;
         }
 
-        woInfo += `<div>
-            <h3>Requested Items</h3>
-            <p>${dispReqItem}</p>
-        </div>
-        `;
+        if (reqItemPrice != null){ // if the requested item has a price,
+            woInfo += `<div>
+                <h3>Requested Items</h3>
+                <p class="wo-view-req-item">${dispReqItem}</p>
+                <p class="wo-view-req-item-price">${reqItemPrice}</p>
+            </div>
+            `;
+        }
+        else { // if there is no price,
+            woInfo += `<div>
+                <h3>Requested Items</h3>
+                <p class="wo-view-req-item">${dispReqItem}</p>
+            </div>
+            `;
+        }
     }
 
     woInfo += `</div>`
-
     main.innerHTML += woInfo;
 
 }
